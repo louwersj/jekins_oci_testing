@@ -15,5 +15,28 @@ echo "haha"'''
       }
     }
 
+    stage('code analysis 1') {
+      parallel {
+        stage('code analysis 1') {
+          steps {
+            echo 'start code analysis 1'
+          }
+        }
+
+        stage('code analysis 2') {
+          steps {
+            echo 'code analysis 2'
+          }
+        }
+
+        stage('code analysis 3') {
+          steps {
+            echo 'code analysis 3'
+          }
+        }
+
+      }
+    }
+
   }
 }
