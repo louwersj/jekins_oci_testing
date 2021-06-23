@@ -38,5 +38,11 @@ echo "haha"'''
       }
     }
 
+    stage('CA1.1') {
+      steps {
+        echo 'CA1.1'
+      }
+    }
+
   }
 }
