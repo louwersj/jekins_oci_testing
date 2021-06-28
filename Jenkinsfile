@@ -1,7 +1,7 @@
 pipeline {
   agent {
     node {
-      label 'testTemplate0'
+      label 'intTempl_acceptance'
     }
 
   }
