@@ -21,31 +21,45 @@ echo "haha"'''
     }
 
     stage('code analysis 1') {
-      parallel {
-        stage('code analysis 1') {
-          steps {
-            echo 'start code analysis 1'
-          }
-        }
-
-        stage('code analysis 2') {
-          steps {
-            echo 'code analysis 2'
-          }
-        }
-
-        stage('code analysis 3') {
-          steps {
-            echo 'code analysis 3'
-          }
-        }
-
+      steps {
+        echo 'start code analysis 1'
       }
     }
 
-    stage('CA1.1') {
-      steps {
-        echo 'CA1.1'
+    stage('build') {
+      parallel {
+        stage('Build') {
+          steps {
+            echo 'CA1.1'
+          }
+        }
+
+        stage('Build x86') {
+          agent {
+            node {
+              label 'buildAgentX86'
+            }
+
+          }
+          steps {
+            sh '''echo "hello world"
+uname -a'''
+          }
+        }
+
+        stage('Build ARM') {
+          agent {
+            node {
+              label 'buildAgentArm64'
+            }
+
+          }
+          steps {
+            sh '''echo "hello world"
+uname -a'''
+          }
+        }
+
       }
     }
 
